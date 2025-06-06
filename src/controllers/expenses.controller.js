@@ -158,9 +158,7 @@ const update = async (req, res) => {
   };
 
   const cleanedData = Object.fromEntries(
-    Object.entries(data).filter(
-      ([, value]) => value !== undefined && value !== null,
-    ),
+    Object.entries(data).filter(([, value]) => value !== undefined),
   );
 
   const result = await expensesService.update(id, cleanedData);
